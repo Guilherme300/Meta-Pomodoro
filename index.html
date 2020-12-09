@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Meta Pomodoro</title>
+        <link rel='stylesheet' href='./styles.css'>
+    </head>
+
+    <body>
+        <div id='master'>
+            <h1>Meta Pomodoro</h1>
+                  
+            <div class="pomodoro">
+                <p class="pomodoro-timer">25:00</p>
+                <button id='pomodoro-start'>START</button>
+            </div>  
+        </div>    
+    </body>
+    <script>
+        let pomoBtn = document.querySelector('#pomodoro-start')
+        let clicked = false
+        pomoBtn.onclick = (ev)=>{
+            if (!clicked){
+                pomoBtn.style.marginLeft = '-5px'
+                pomoBtn.style.marginTop = '5px'
+                pomoBtn.style.borderLeft = 'none'
+                pomoBtn.style.borderBottom = 'none'
+                
+                clicked = true
+                return
+            }       
+            
+            pomoBtn.style.marginLeft = '0'
+            pomoBtn.style.marginTop = '0'
+            pomoBtn.style.borderLeft = '5px solid var(--button-border)'
+            pomoBtn.style.borderBottom = '5px solid var(--button-border)'
+            
+            clicked = false
+                
+        }
+    </script>
+</html>
