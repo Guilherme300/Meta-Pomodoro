@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap');
 
 :root{
-    --master-background: #631818;
+    --master-background: #872323;
     --button-border: #c4c4c4;
 }
 
@@ -48,7 +48,7 @@ body{
     position: absolute;
     width: 250px;
     height: 250px;
-    font-size: 19pt;
+    font-size: 26pt;
     border-radius: 300px;
     cursor: pointer;
     left: 50%;

@@ -3,6 +3,7 @@
     <head>
         <title>Meta Pomodoro</title>
         <link rel='stylesheet' href='./styles.css'>
+        <script type="text/javascript" src="./timer.js"></script>
     </head>
 
     <body>
@@ -16,26 +17,16 @@
         </div>    
     </body>
     <script>
-        let pomoBtn = document.querySelector('#pomodoro-start')
-        let clicked = false
-        pomoBtn.onclick = (ev)=>{
-            if (!clicked){
-                pomoBtn.style.marginLeft = '-5px'
-                pomoBtn.style.marginTop = '5px'
-                pomoBtn.style.borderLeft = 'none'
-                pomoBtn.style.borderBottom = 'none'
-                
-                clicked = true
-                return
-            }       
-            
-            pomoBtn.style.marginLeft = '0'
-            pomoBtn.style.marginTop = '0'
-            pomoBtn.style.borderLeft = '5px solid var(--button-border)'
-            pomoBtn.style.borderBottom = '5px solid var(--button-border)'
-            
-            clicked = false
-                
-        }
+        let timer = document.querySelector('.pomodoro-timer')
+        let pomoTimer = new PomodoroTimer()
+        
+        document.addEventListener('time', (ev)=>{
+            timer.innerHTML = ev.detail.time        
+        })        
+        
+        document.addEventListener('mlstime', (ev)=>{
+            console.log(ev.detail.time)        
+        })
     </script>
+    <script type="text/javascript" src="./btnControl.js"></script>
 </html>
