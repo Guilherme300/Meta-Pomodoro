@@ -100,11 +100,6 @@ class PomodoroTimer{
         return (this.minutes * 60 * 1000) + (this.seconds * 1000)            
     }
     
-    _audio = (link) => {
-        let audio = new Audio(link)
-        audio.play()
-    }
-    
     _putZero = (n) => {
         return n < 10 ? '0' + n : n    
     }
