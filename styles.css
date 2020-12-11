@@ -2,6 +2,8 @@
 
 :root{
     --master-background: #872323;
+    --master-background-not-working: #238654;
+    
     --button-border: #c4c4c4;
 }
 
@@ -61,4 +63,18 @@ body{
 
 .pomodoro button:hover{
 
+}
+
+#full-time{
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #222;
+}
+
+#load-time{
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: #51f542;
 }

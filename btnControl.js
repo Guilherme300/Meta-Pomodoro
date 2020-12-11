@@ -6,8 +6,9 @@ document.addEventListener('timeout', () => {
     audioPlay('./assets/Indian Bell-SoundBible.com-1882377860.wav') 
 })        
 
-let audioPlay = (src)=>{
+let audioPlay = (src, vol=0.2)=>{
     let audio = new Audio(src)
+    audio.volume = vol
     audio.play()
 }
 

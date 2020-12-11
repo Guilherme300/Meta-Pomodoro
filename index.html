@@ -11,6 +11,11 @@
             <h1>Meta Pomodoro</h1>
                   
             <div class="pomodoro">
+
+                <div id='full-time'>
+                   <div id='load-time'/>                
+                </div>
+                
                 <p class="pomodoro-timer">25:00</p>
                 <button id='pomodoro-start'>START</button>
             </div>  
@@ -20,13 +25,35 @@
         let timer = document.querySelector('.pomodoro-timer')
         let pomoTimer = new PomodoroTimer()
         
+        let fullTime = 0        
+        
         document.addEventListener('time', (ev)=>{
-            timer.innerHTML = ev.detail.time        
+            let time = ev.detail.time
+            timer.innerHTML = time
         })        
         
         document.addEventListener('mlstime', (ev)=>{
-            console.log(ev.detail.time)        
+            let time = ev.detail.time
+            
+            let difference = (fullTime - time)
+            let x = (difference / fullTime) * 100
+
+            document.querySelector('#load-time').style.width = `${x}%`     
         })
+        
+        document.addEventListener('timeWorking', (ev)=>{
+            let master = document.querySelector('#master')
+            if (!ev.detail.work){
+                master.style.backgroundColor = 'var(--master-background-not-working)'
+                return
+            }
+            master.style.backgroundColor = 'var(--master-background)'
+        })
+        
+        document.addEventListener('fullTimeChange', (ev)=>{
+            fullTime = ev.detail.time
+        })
+        
     </script>
     <script type="text/javascript" src="./btnControl.js"></script>
 </html>
