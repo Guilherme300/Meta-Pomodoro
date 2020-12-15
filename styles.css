@@ -4,7 +4,14 @@
     --master-background: #872323;
     --master-background-not-working: #238654;
     
+    --darker-background: #631a1a;
+    --darker-background-not-working: #165937;    
+    
     --button-border: #c4c4c4;
+}
+
+*{
+    box-sizing: border-box;
 }
 
 body{
@@ -77,4 +84,18 @@ body{
     height: 2px;
     width: 0%;
     background-color: #51f542;
+}
+
+.glassy-sky{
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    overflow: hidden;
+    width: 150px;
+    height: 100px;
+    background-color: var(--darker-background); 
+    box-shadow: inset 0px 0px 7px rgb(50, 0, 0);
+    padding: 10px;
+    color: #fcfcfc;
+    text-align: center;
 }

@@ -15,7 +15,7 @@ class PomodoroTimer{
         
         this.working = new CustomEvent('timeWorking', { detail: { work: this.work } })        
         
-        this.fullTimeChange = new CustomEvent('fullTimeChange', { detail: { time: this._getFullMls() } })
+        this.fullTimeChange = new CustomEvent('fullTimeChange', { detail: { time: this._getFullMls(), cicle: this.cicle, work: this.work } })
 
         this.mlstime = new CustomEvent('mlstime', { detail: { time: 0 } })
         
@@ -35,6 +35,7 @@ class PomodoroTimer{
                         this._triggerWorkingEv()
                         this._updateCicle()
                         this._triggerFullTimeChangeEv()
+                        this._triggerTimeEv()
                         this.started = false
                         return                
                     }                    
@@ -59,16 +60,16 @@ class PomodoroTimer{
     }
     
     _updateCicle = () => {
-        this.cicle++
         if (this.work){
+            this.cicle++
+            this.work = false
             if (this.cicle == 4){
                 this.minutes = '15'
                 this.cicle = 0
-                return            
+                return        
             }
-            this.work = false
-            this.minutes = '05'  
-            return      
+            this.minutes = '05'
+            return
         }
         this.work = true
         this.minutes = '25'
@@ -88,6 +89,8 @@ class PomodoroTimer{
     
     _triggerFullTimeChangeEv = () => {
         this.fullTimeChange.detail.time = this._getFullMls()
+        this.fullTimeChange.detail.cicle = this.cicle
+        this.fullTimeChange.detail.work = this.work
         document.dispatchEvent(this.fullTimeChange)
     }
     
@@ -103,4 +106,5 @@ class PomodoroTimer{
     _putZero = (n) => {
         return n < 10 ? '0' + n : n    
     }
+    
 }

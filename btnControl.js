@@ -3,13 +3,16 @@ let clicked = false
 
 document.addEventListener('timeout', () => {
     btnPaused()
-    audioPlay('./assets/Indian Bell-SoundBible.com-1882377860.wav') 
+    audioPlay('./assets/Annoying_Alarm_Clock-UncleKornicob-420925725.wav') 
 })        
 
 let audioPlay = (src, vol=0.2)=>{
     let audio = new Audio(src)
     audio.volume = vol
     audio.play()
+    setTimeout(()=>{
+        audio.pause()    
+    }, 2000)
 }
 
 pomoBtn.onclick = (ev)=>{ 
