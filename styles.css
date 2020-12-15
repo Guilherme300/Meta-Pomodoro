@@ -68,10 +68,6 @@ body{
     transition: .2s all;
 }
 
-.pomodoro button:hover{
-
-}
-
 #full-time{
     position: absolute;
     height: 2px;
