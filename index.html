@@ -20,7 +20,7 @@
                 <button id='pomodoro-start'>START</button>
                 
                 <div class="glassy-sky">
-                    <p id='cycles'>0/4 Cicles</p>    
+                    <p id='cicles'>0/4 Cycles</p>    
                     <p id='working'>Working</p>          
                 </div>
                 
@@ -65,7 +65,7 @@
             let working = document.querySelector('#working')
             fullTime = ev.detail.time
             
-            cicles.innerHTML = ev.detail.cicle + '/4 Cicles'
+            cicles.innerHTML = ev.detail.cicle + '/4 Cycles'
             working.innerHTML = ev.detail.work == true ? 'Working' : 'Resting'
         })
         
