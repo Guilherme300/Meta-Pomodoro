@@ -20,7 +20,7 @@
                 <button id='pomodoro-start'>START</button>
                 
                 <div class="glassy-sky">
-                    <p id='cicles'>0/4 Cicles</p>    
+                    <p id='cycles'>0/4 Cicles</p>    
                     <p id='working'>Working</p>          
                 </div>
                 
@@ -36,6 +36,7 @@
         document.addEventListener('time', (ev)=>{
             let time = ev.detail.time
             timer.innerHTML = time
+            document.querySelector('title').innerHTML = 'Meta Pomodoro' + ' ' + time
         })        
         
         document.addEventListener('mlstime', (ev)=>{
