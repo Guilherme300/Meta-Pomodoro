@@ -6,7 +6,7 @@ Pomodoro é uma técnica para aumentar a concentração realizando atividades.
 
 **Técnica:**
 No pomodoro você irá ter um tempo de trabalho e um tempo de descanso. Você irá realizar sua atividade escolhida no tempo de trabalho tentando ao máximo só realizar esta atividade ignorando fazer qualquer outra coisa que lhe vier como vontade com a quantidade de pomodoro que você despejou para ela e então descansar quando o tempo do trabalho finalizar.
-Um pomodoro é 1 tempo de trabalho + 1 tempo de descanço. 
+Um pomodoro é 1 tempo de trabalho + 1 tempo de descanso. 
 
 **Porque usar o meta-pomodoro:**
 O meta-pomodoro irá fazer automáticamente a mudança de tempo de trabalho para tempo de descanso e irá ativar um alarme toda vez que um tempo finalizar.
