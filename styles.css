@@ -54,7 +54,7 @@ body{
 }
 
 .pomodoro button{
-    position: absolute;
+    position: relative;
     width: 250px;
     height: 250px;
     font-size: 26pt;
@@ -66,6 +66,33 @@ body{
     border-top: none; border-right: none;
     border-bottom: 5px solid var(--button-border); border-left: 5px solid var(--button-border); 
     transition: .2s all;
+}
+
+#pomodoro-configs{
+    position: relative;
+    margin-top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 49px;
+    max-width: 120px;
+    background-color: var(--master-background);
+    display: flex;
+    justify-content: center;
+    item-align: center;
+    box-shadow: inset 0 0 4px 1px #111;
+}
+
+#pomodoro-configs img{
+    margin-top: 8.5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#pomodoro-configs img:hover{
+    box-shadow: inset 0 0 7px rgb(0, 255,0);
 }
 
 #full-time{
@@ -94,4 +121,114 @@ body{
     padding: 10px;
     color: #fcfcfc;
     text-align: center;
+}
+
+#master .options{
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    background-color: white;
+    width: 342px;
+    height: 327px;
+    z-index: 5;
+    display: none;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: 0 0 6px black;
+    animation: animated .5s;
+}
+
+@keyframes animated {
+    0%{
+        left: 100%;    
+    }
+    100%{
+        left: 50%;    
+    }
+}
+
+#master .options.closing{
+    animation: closing .5s;
+}
+
+@keyframes closing{
+    0% {
+        left: 50%;    
+    }
+    100%{
+        left: 0%;    
+    }
+}
+
+#master .options span{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+}
+
+#master .options div{
+    border: 1px solid #aaa;
+    height: 39px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Roboto;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+#master .options h1{
+    margin-top: -10px;
+    text-align: center;
+    color: black;
+}
+
+.custom-select{
+    all: initial;
+    background-color: #AFAFAF;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    transition: .2s all;
+}
+
+.custom-select:hover{
+    background-color: black;
+    color: white;
+}
+
+#black-screen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 3;
+    display: none;
+}
+
+#master .options button{
+    cursor: pointer;
+    margin-top: 15px;
+    background-color: #73D651;
+    text-shadow: 0px 0px 3px #444;
+    height: 44px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 24px;
+    border: none;
+    transition: .2s;
+    padding: 5px;
+}
+
+#master .options button:hover{
+    background-color: black;
 }

@@ -8,8 +8,60 @@
 
     <body>
         <div id='master'>
+            <div id='black-screen'></div>
             <h1>Meta Pomodoro</h1>
-                  
+
+            <div class='options'>
+
+                <h1>Options</h1>
+                <span id='close-options'>X</span>
+                <div>
+                    <p>Work Time</p>
+                    <select class='custom-select' id='work-time'>
+                        <option value="0">05:00</option>
+                        <option value="1">10:00</option>
+                        <option value="2">15:00</option>
+                        <option value="3">20:00</option>
+                        <option value="4">25:00</option>
+                        <option value="5">30:00</option>
+                        <option value="6">35:00</option>
+                        <option value="7">40:00</option>                        
+                    </select>
+                    <!--<p class='time'>25:00</p> -->             
+                </div>
+
+                <div>
+                    <p>Rest Time</p>
+                    <select class='custom-select' id='rest-time'>
+                        <option value="0">05:00</option>
+                        <option value="1">10:00</option>
+                        <option value="2">15:00</option>
+                        <option value="3">20:00</option>
+                        <option value="4">25:00</option>
+                        <option value="5">30:00</option>
+                        <option value="6">35:00</option>
+                        <option value="7">40:00</option>                        
+                    </select>              
+                </div>
+                
+                <div>
+                    <p>Long Rest Time</p>
+                    <select class='custom-select' id='long-rest-time'>
+                        <option value="0">05:00</option>
+                        <option value="1">10:00</option>
+                        <option value="2">15:00</option>
+                        <option value="3">20:00</option>
+                        <option value="4">25:00</option>
+                        <option value="5">30:00</option>
+                        <option value="6">35:00</option>
+                        <option value="7">40:00</option>                        
+                    </select>            
+                </div>
+
+                <button id='update-options'>Update</button>
+
+            </div>
+            
             <div class="pomodoro">
 
                 <div id='full-time'>
@@ -19,8 +71,12 @@
                 <p class="pomodoro-timer">25:00</p>
                 <button id='pomodoro-start'>START</button>
                 
+                <div id='pomodoro-configs'>
+                    <img id='open-options' src="assets/settings-white-18dp.svg" alt="">                
+                </div>                           
+                
                 <div class="glassy-sky">
-                    <p id='cicles'>0/4 Cycles</p>    
+                    <p id='cicles'>0/4 Cicles</p>    
                     <p id='working'>Working</p>          
                 </div>
                 
@@ -71,4 +127,5 @@
         
     </script>
     <script type="text/javascript" src="./btnControl.js"></script>
+    <script src="./options.js"></script>
 </html>

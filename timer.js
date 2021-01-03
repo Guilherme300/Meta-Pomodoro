@@ -6,10 +6,15 @@ class PomodoroTimer{
         this.started = false
         this.loop
 
-        this.minutes = '25'
-        this.seconds = '00'
+        this.timers = {
+            workTime: '25',
+            restTime: '05',
+            longRestTime: '15'
+        }
         
-        this.time = new CustomEvent('time', { detail: { time: `${this.minutes}:${this.seconds}` } })
+        this.actualTime = { minutes: this.timers.workTime, seconds: '00' }
+        
+        this.time = new CustomEvent('time', { detail: { time: `${this.actualTime.minutes}:${this.actualTime.seconds}` } })
 
         this.timeout = new Event('timeout')
         
@@ -27,9 +32,9 @@ class PomodoroTimer{
     start = () => {
         if (!this.started){
             this.loop = setInterval(()=>{
-                if (this.seconds == 0){
+                if (this.actualTime.seconds == 0){
 
-                    if (this.minutes == 0){
+                    if (this.actualTime.minutes == 0){
                         clearInterval(this.loop)
                         document.dispatchEvent(this.timeout)
                         this._triggerWorkingEv()
@@ -40,17 +45,17 @@ class PomodoroTimer{
                         return                
                     }                    
                     
-                    this.minutes -= 1
-                    this.minutes = this._putZero(this.minutes)                    
-                    this.seconds = 60
+                    this.actualTime.minutes -= 1
+                    this.actualTime.minutes = this._putZero(this.actualTime.minutes)                    
+                    this.actualTime.seconds = 60
                 }
-                this.seconds -= 1
-                this.seconds = this._putZero(this.seconds)
+                this.actualTime.seconds -= 1
+                this.actualTime.seconds = this._putZero(this.actualTime.seconds)
                     
                 this._triggerTimeEv()
                 this._triggerMlstimeEv()         
                 
-            }, 1000)
+            }, 10)
             
             this.started = true
             return        
@@ -59,24 +64,31 @@ class PomodoroTimer{
         this.started = false
     }
     
+    updateTimers = (timers) => {
+        this.timers = timers
+        this.actualTime = { minutes: this.timers.workTime, seconds: '00' }
+        this._triggerTimeEv()
+        this._triggerFullTimeChangeEv()
+    }    
+    
     _updateCicle = () => {
         if (this.work){
             this.cicle++
             this.work = false
             if (this.cicle == 4){
-                this.minutes = '15'
+                this.actualTime.minutes = this.timers.longRestTime
                 this.cicle = 0
                 return        
             }
-            this.minutes = '05'
+            this.actualTime.minutes = this.timers.restTime
             return
         }
         this.work = true
-        this.minutes = '25'
+        this.actualTime.minutes = this.timers.workTime
     }
     
     _triggerTimeEv = () => {
-        const time = `${this.minutes}:${this.seconds}`
+        const time = `${this.actualTime.minutes}:${this.actualTime.seconds}`
         this.time.detail.time = time 
         document.dispatchEvent(this.time)    
     }
@@ -100,7 +112,7 @@ class PomodoroTimer{
     }
     
     _getFullMls = () => {
-        return (this.minutes * 60 * 1000) + (this.seconds * 1000)            
+        return (this.actualTime.minutes * 60 * 1000) + (this.actualTime.seconds * 1000)            
     }
     
     _putZero = (n) => {
