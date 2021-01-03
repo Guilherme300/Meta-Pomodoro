@@ -55,7 +55,7 @@ class PomodoroTimer{
                 this._triggerTimeEv()
                 this._triggerMlstimeEv()         
                 
-            }, 10)
+            }, 1000)
             
             this.started = true
             return        
